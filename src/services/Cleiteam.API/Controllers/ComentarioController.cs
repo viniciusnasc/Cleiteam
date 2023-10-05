@@ -4,15 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cleiteam.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class ComentarioController : BaseController
     {
         private readonly IComentarioService _comentarioService;
 
         public ComentarioController(IComentarioService comentarioService)
         {
-            _comentarioService = comentarioService;
+            _comentarioService = comentarioService ?? throw new ArgumentNullException(nameof(comentarioService));
         }
 
         [HttpGet]

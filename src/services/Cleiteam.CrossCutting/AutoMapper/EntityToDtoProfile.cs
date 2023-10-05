@@ -11,6 +11,9 @@ namespace Cleiteam.CrossCutting.AutoMapper
             // TipoOcorrencia
             CreateMap<TipoOcorrencia, TipoOcorrenciaView>();
 
+            // SubtipoOcorrencia
+            CreateMap<SubtipoOcorrencia, SubtipoOcorrenciaView>();
+
             // Ocorrencia
             CreateMap<Ocorrencia, OcorrenciaViewModel>();
             CreateMap<Ocorrencia, OcorrenciaInputModel>().ReverseMap();

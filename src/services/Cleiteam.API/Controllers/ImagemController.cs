@@ -1,12 +1,8 @@
 ﻿using Cleiteam.Domain.Interfaces.Service;
-using Cleiteam.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cleiteam.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class ImagemController : BaseController
     {
         private readonly IImagemOcorrenciaService _imagemOcorrenciaService;

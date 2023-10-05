@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cleiteam.API.Controllers
 {
-    [Route("api/[controller]")]
     public class TipoOcorrenciaController : BaseController
     {
         private readonly ITipoOcorrenciaService _tipoOcorrenciaService;
@@ -15,18 +14,25 @@ namespace Cleiteam.API.Controllers
         }
 
         [HttpGet]
-        [ClaimsAuthorize("TipoUsuario", "UsuarioComum")]
         public async Task<ActionResult> BuscarTodos()
         {
             var entities = await _tipoOcorrenciaService.BuscarTodos();
             return CustomResponse(entities);
         }
 
+        [HttpGet("SubtipoOcorrencia")]
+        public async Task<ActionResult> BuscarTodosSubtipos(Guid idTipoOcorrencia)
+        {
+            var entities = await _tipoOcorrenciaService.BuscarSubtiposOcorrencia(idTipoOcorrencia);
+            return CustomResponse(entities);
+        }
+
+        /*
         [HttpPost]
         public async Task<ActionResult> Cadastrar(string descricaoTipoOcorrencia)
         {
             await _tipoOcorrenciaService.Adicionar(descricaoTipoOcorrencia);
             return CustomResponse();
-        }
+        }*/
     }
 }

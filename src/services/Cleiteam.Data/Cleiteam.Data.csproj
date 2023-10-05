@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Cleiteam.Domain\Cleiteam.Domain.csproj" />
+    <ProjectReference Include="..\Cleiteam.Domain\Cleiteam.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
