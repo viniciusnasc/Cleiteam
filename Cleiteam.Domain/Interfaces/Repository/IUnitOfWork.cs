@@ -7,5 +7,6 @@
         public ITipoOcorrenciaRepository TipoOcorrenciaRepository { get; }
         public IOcorrenciaRepository OcorrenciaRepository { get; }
         public IUsuarioConfiguracaoRepository UsuarioConfiguracaoRepository { get;}
+        public IUsuarioOcorrenciaRepository UsuarioOcorrenciaRepository { get; }
     }
 }

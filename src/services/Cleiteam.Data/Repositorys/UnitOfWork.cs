@@ -11,6 +11,7 @@ namespace Cleiteam.Data.Repositorys
         public ITipoOcorrenciaRepository TipoOcorrenciaRepository { get; }
         public IOcorrenciaRepository OcorrenciaRepository { get; }
         public IUsuarioConfiguracaoRepository UsuarioConfiguracaoRepository { get; }
+        public IUsuarioOcorrenciaRepository UsuarioOcorrenciaRepository { get; }
 
         public UnitOfWork(CleiteamContext context)
         {
@@ -20,6 +21,7 @@ namespace Cleiteam.Data.Repositorys
             TipoOcorrenciaRepository = new TipoOcorrenciaRepository(context);
             OcorrenciaRepository = new OcorrenciaRepository(context);
             UsuarioConfiguracaoRepository = new UsuarioConfiguracaoRepository(context);
+            UsuarioOcorrenciaRepository = new UsuarioOcorrenciaRepository(context);
         }
     }
 }
