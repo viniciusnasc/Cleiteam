@@ -10,6 +10,14 @@ namespace Cleiteam.CrossCutting.AutoMapper
         {
             CreateMap<TipoOcorrencia, TipoOcorrenciaView>();
             CreateMap<Ocorrencia, OcorrenciaInputModel>().ReverseMap();
+            
+            // Comentarios
+            CreateMap<ComentarioImagem, ComentarioView>()
+                .ForMember(x => x.NomeUsuario, map => map.MapFrom(src => src.Usuario.Nome));
+            CreateMap<ComentarioInputModel, ComentarioImagem>();
+
+            // Usuario
+            CreateMap<UsuarioConfiguracao, UsuarioView>().ReverseMap();
         }
     }
 }

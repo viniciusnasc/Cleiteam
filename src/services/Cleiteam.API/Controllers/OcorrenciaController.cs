@@ -1,5 +1,6 @@
 using Cleiteam.Domain.Interfaces.Service;
 using Cleiteam.Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cleiteam.API.Controllers
@@ -15,7 +16,8 @@ namespace Cleiteam.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> BuscarOcorrencias()
+        [Authorize]
+        public async Task<ActionResult> BuscarOcorrencias(long latitude, long longitude)
         {
             return CustomResponse();
         }

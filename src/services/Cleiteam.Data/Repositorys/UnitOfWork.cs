@@ -6,12 +6,20 @@ namespace Cleiteam.Data.Repositorys
     public class UnitOfWork : IUnitOfWork
     {
         private readonly CleiteamContext _context;
+        public IComentarioImagemRepository ComentarioImagemRepository { get; }
+        public IImagemOcorrenciaRepository ImagemOcorrenciaRepository { get; }
         public ITipoOcorrenciaRepository TipoOcorrenciaRepository { get; }
+        public IOcorrenciaRepository OcorrenciaRepository { get; }
+        public IUsuarioConfiguracaoRepository UsuarioConfiguracaoRepository { get; }
 
         public UnitOfWork(CleiteamContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
+            ComentarioImagemRepository = new ComentarioImagemRepository(context);
+            ImagemOcorrenciaRepository = new ImagemOcorrenciaRepository(context);
             TipoOcorrenciaRepository = new TipoOcorrenciaRepository(context);
+            OcorrenciaRepository = new OcorrenciaRepository(context);
+            UsuarioConfiguracaoRepository = new UsuarioConfiguracaoRepository(context);
         }
     }
 }

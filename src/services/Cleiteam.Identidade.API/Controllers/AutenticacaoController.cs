@@ -1,3 +1,4 @@
+using Cleiteam.Domain.Interfaces.Service;
 using Cleiteam.Identidade.API.Extensions;
 using Cleiteam.Identidade.API.Models;
 using Microsoft.AspNetCore.Identity;
@@ -16,14 +17,17 @@ namespace Cleiteam.Identidade.API.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettingsConfiguration _appSettings;
+        private readonly IUsuarioConfiguracaoService _usuarioConfiguracaoService;
 
-        public AutenticacaoController(SignInManager<IdentityUser> signInManager, 
-            UserManager<IdentityUser> userManager, 
-            IOptions<AppSettingsConfiguration> appSettings)
+        public AutenticacaoController(SignInManager<IdentityUser> signInManager,
+            UserManager<IdentityUser> userManager,
+            IOptions<AppSettingsConfiguration> appSettings,
+            IUsuarioConfiguracaoService usuarioConfiguracaoService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
+            _usuarioConfiguracaoService = usuarioConfiguracaoService;
         }
 
         [HttpPost("nova-conta")]
@@ -33,41 +37,13 @@ namespace Cleiteam.Identidade.API.Controllers
 
             var user = new IdentityUser
             {
-                UserName = usuarioRegistro.Nome,
+                UserName = usuarioRegistro.Email,
                 Email = usuarioRegistro.Email,
                 EmailConfirmed = true
             };
 
             var result = await _userManager.CreateAsync(user, usuarioRegistro.Senha);
-            await _userManager.AddClaimAsync(user, new Claim("TipoUsuario", "usuarioComum"));
-
-            if (result.Succeeded)
-            {
-                return CustomResponse(await GerarJwt(usuarioRegistro.Email));
-            }
-
-            foreach (var error in result.Errors)
-            {
-                AdicionarErroProcessamento(error.Description);
-            }
-
-            return CustomResponse();
-        }
-
-        [HttpPost("nova-conta-administrador")]
-        public async Task<ActionResult> CadastroPJ(UsuarioRegistro usuarioRegistro)
-        {
-            if (!ModelState.IsValid) return CustomResponse(ModelState);
-
-            var user = new IdentityUser
-            {
-                UserName = usuarioRegistro.Nome,
-                Email = usuarioRegistro.Email,
-                EmailConfirmed = true,
-            };
-
-            var result = await _userManager.CreateAsync(user, usuarioRegistro.Senha);
-            await _userManager.AddClaimAsync(user, new Claim("TipoUsuario", "administrador"));
+            await _userManager.AddClaimAsync(user, new Claim("TipoUsuario", "UsuarioComum"));
 
             if (result.Succeeded)
             {
@@ -108,6 +84,7 @@ namespace Cleiteam.Identidade.API.Controllers
         private async Task<UsuarioRespostaLogin> GerarJwt(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
+ 
             var claims = await _userManager.GetClaimsAsync(user);
 
             var identityClaims = await ObterClaimsUsuario(claims, user);
@@ -120,6 +97,7 @@ namespace Cleiteam.Identidade.API.Controllers
         {
             var userRoles = await _userManager.GetRolesAsync(user);
 
+            
             claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));

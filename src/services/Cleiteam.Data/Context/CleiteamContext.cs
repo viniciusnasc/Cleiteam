@@ -10,6 +10,11 @@ namespace Cleiteam.Data.Context
         { }
 
         public DbSet<TipoOcorrencia> TiposOcorrencia { get; set; }
+        public DbSet<UsuarioConfiguracao> UsuarioConfiguracoes { get; set; }
+        public DbSet<UsuarioOcorrencia> UsuarioOcorrencias { get; set; }
+        public DbSet<Ocorrencia> Ocorrencias { get; set; }
+        public DbSet<ImagemOcorrencia> ImagemOcorrencias { get; set; }
+        public DbSet<ComentarioImagem> ComentariosImagem { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

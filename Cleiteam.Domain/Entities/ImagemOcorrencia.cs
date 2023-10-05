@@ -2,13 +2,14 @@
 {
     public class ImagemOcorrencia : BaseEntity
     {
-        public int IdOcorrencia { get; set; }
-        public int IdUsuario { get; set; }
+        public Guid IdOcorrencia { get; set; }
+        public Guid IdUsuario { get; set; }
         public string NomeArquivo { get; set; }
         public int Likes { get; set; }
 
         public Ocorrencia Ocorrencia { get; set; }
-        public Usuario Usuario { get; set; }
+        public UsuarioConfiguracao Usuario { get; set; }
+        public List<ComentarioImagem> Comentarios { get; set; }
 
         public ImagemOcorrencia(string nomeArquivo)
         {

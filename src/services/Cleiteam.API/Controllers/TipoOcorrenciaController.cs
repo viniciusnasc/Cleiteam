@@ -15,6 +15,7 @@ namespace Cleiteam.API.Controllers
         }
 
         [HttpGet]
+        [ClaimsAuthorize("TipoUsuario", "UsuarioComum")]
         public async Task<ActionResult> BuscarTodos()
         {
             var entities = await _tipoOcorrenciaService.BuscarTodos();
@@ -22,7 +23,6 @@ namespace Cleiteam.API.Controllers
         }
 
         [HttpPost]
-        //[ClaimsAuthorize("", "")]
         public async Task<ActionResult> Cadastrar(string descricaoTipoOcorrencia)
         {
             await _tipoOcorrenciaService.Adicionar(descricaoTipoOcorrencia);

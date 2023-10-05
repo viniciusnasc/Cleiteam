@@ -2,6 +2,7 @@
 using Cleiteam.Domain.Entities;
 using Cleiteam.Domain.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace Cleiteam.Data.Repositorys
@@ -17,7 +18,13 @@ namespace Cleiteam.Data.Repositorys
 
         public virtual async Task Incluir(T entity)
         {
-            await _context.Set<T>().AddAsync(entity);
+           await _context.Set<T>().AddAsync(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public virtual async Task Remover(T entity)
+        {
+            _context.Remove(entity);
             await _context.SaveChangesAsync();
         }
 
@@ -40,6 +47,11 @@ namespace Cleiteam.Data.Repositorys
         public virtual async Task<T> Buscar(Expression<Func<T, bool>> predicate)
         {
             return await _context.Set<T>().FirstOrDefaultAsync(predicate);
+        }
+
+        public virtual async Task<List<T>> BuscarVarios(Expression<Func<T, bool>> predicate)
+        {
+            return await _context.Set<T>().Where(predicate).ToListAsync();
         }
 
         public async Task Dispose()

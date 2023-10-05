@@ -8,5 +8,11 @@ namespace Cleiteam.Domain.Entities
         public Guid Id { get; set; }
         public DateTime DataCriacao { get; set; }
         public DateTime DataEdicao { get; set; }
+
+        protected BaseEntity()
+        {
+            Id = Guid.NewGuid();
+            DataCriacao = DateTime.Now;
+        }
     }
 }
