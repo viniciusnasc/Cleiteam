@@ -39,6 +39,12 @@ namespace Cleiteam.Service
         {
             return _accessor.HttpContext.User.Claims;
         }
+
+        public string GetBaseUrl()
+        {
+            var request = _accessor.HttpContext?.Request;
+            return $"{request?.Scheme}://{request?.Host.Value}{request?.PathBase.Value}";
+        }
     }
 
     public static class ClaimsPrincipalExtensions

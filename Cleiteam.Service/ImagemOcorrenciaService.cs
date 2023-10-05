@@ -1,6 +1,8 @@
-﻿using Cleiteam.Domain.Entities;
+﻿using AutoMapper;
+using Cleiteam.Domain.Entities;
 using Cleiteam.Domain.Interfaces.Repository;
 using Cleiteam.Domain.Interfaces.Service;
+using Cleiteam.Domain.Models;
 using Microsoft.AspNetCore.Http;
 
 namespace Cleiteam.Service
@@ -9,16 +11,26 @@ namespace Cleiteam.Service
     {
         private readonly IUser _user;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public ImagemOcorrenciaService(INotificador notificador, IUser user, IUnitOfWork unitOfWork) : base(notificador)
+        public ImagemOcorrenciaService(INotificador notificador, IUser user, IUnitOfWork unitOfWork, IMapper mapper) : base(notificador)
         {
             _user = user;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public async Task BuscarTodos(Guid idOcorrencia)
+        public async Task<List<ImagemView>> BuscarTodos(Guid idOcorrencia)
         {
             var entities = await _unitOfWork.ImagemOcorrenciaRepository.BuscarVarios(x => x.IdOcorrencia == idOcorrencia);
+            var models = _mapper.Map<List<ImagemView>>(entities);
+
+            models.ForEach(x =>
+            {
+                x.Link = _user.GetBaseUrl() + "/files/" + x.NomeArquivo;
+            });
+
+            return models;
         }
 
         public async Task Adicionar(Guid idOcorrencia, IFormFile file)

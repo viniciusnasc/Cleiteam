@@ -18,7 +18,7 @@ namespace Cleiteam.Data.Repositorys
 
         public virtual async Task Incluir(T entity)
         {
-           await _context.Set<T>().AddAsync(entity);
+            await _context.Set<T>().AddAsync(entity);
             await _context.SaveChangesAsync();
         }
 

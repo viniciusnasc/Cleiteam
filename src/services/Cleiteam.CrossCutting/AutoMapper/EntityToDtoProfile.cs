@@ -8,7 +8,11 @@ namespace Cleiteam.CrossCutting.AutoMapper
     {
         public EntityToDtoProfile()
         {
+            // TipoOcorrencia
             CreateMap<TipoOcorrencia, TipoOcorrenciaView>();
+
+            // Ocorrencia
+            CreateMap<Ocorrencia, OcorrenciaViewModel>();
             CreateMap<Ocorrencia, OcorrenciaInputModel>().ReverseMap();
             
             // Comentarios
@@ -18,6 +22,9 @@ namespace Cleiteam.CrossCutting.AutoMapper
 
             // Usuario
             CreateMap<UsuarioConfiguracao, UsuarioView>().ReverseMap();
+
+            // Imagem
+            CreateMap<ImagemOcorrencia, ImagemView>();
         }
     }
 }

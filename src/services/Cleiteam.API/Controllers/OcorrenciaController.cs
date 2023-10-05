@@ -17,17 +17,18 @@ namespace Cleiteam.API.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult> BuscarOcorrencias(long latitude, long longitude)
+        public async Task<ActionResult> BuscarOcorrencias(long latitude, long longitude, int rangeDistancia = 10)
         {
-            return CustomResponse();
+            var result = await _ocorrenciaService.Buscar(latitude, longitude, rangeDistancia);
+            return CustomResponse(result);
         }
 
         [HttpPost]
         public async Task<ActionResult> Cadastrar(OcorrenciaInputModel model)
         {
-            if(ModelState.IsValid) return CustomResponse(ModelState);
+            if(!ModelState.IsValid) return CustomResponse(ModelState);
 
-
+            await _ocorrenciaService.Cadastrar(model);
 
             return CustomResponse();
         }
