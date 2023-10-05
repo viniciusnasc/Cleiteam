@@ -10,5 +10,7 @@ namespace Cleiteam.Domain.Interfaces.Repository
         Task<T> SelecionarPorId(Guid id);
         Task<List<T>> SelecionarTudo();
         Task<T> Buscar(Expression<Func<T, bool>> predicate);
+        Task<List<T>> BuscarVarios(Expression<Func<T, bool>> predicate);
+        Task Remover(T entity);
     }
 }

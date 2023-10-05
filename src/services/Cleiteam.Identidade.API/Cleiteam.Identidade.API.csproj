@@ -23,4 +23,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Cleiteam.Domain\Cleiteam.Domain.csproj" />
+    <ProjectReference Include="..\Cleiteam.CrossCutting\Cleiteam.CrossCutting.csproj" />
+  </ItemGroup>
+
 </Project>

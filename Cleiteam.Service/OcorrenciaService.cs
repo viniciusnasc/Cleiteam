@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Cleiteam.Domain.Entities;
+using Cleiteam.Domain.Interfaces.Repository;
 using Cleiteam.Domain.Interfaces.Service;
 using Cleiteam.Domain.Models;
 using Microsoft.AspNetCore.Http;
@@ -10,10 +11,17 @@ namespace Cleiteam.Service
     public class OcorrenciaService : BaseService, IOcorrenciaService
     {
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public OcorrenciaService(INotificador notificador, IMapper mapper) : base(notificador)
+        public OcorrenciaService(INotificador notificador, IMapper mapper, IUnitOfWork unitOfWork) : base(notificador)
         {
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
+        }
+
+        public async Task Buscar(long latitude, long longitude)
+        {
+            //await _unitOfWork.
         }
 
         public async Task Cadastrar(OcorrenciaInputModel model)

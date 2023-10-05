@@ -10,7 +10,9 @@ namespace Cleiteam.Data.Mapping
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.Descricao).IsRequired().HasColumnType("varchar(50)");
+            builder.Property(x => x.Descricao)
+                .IsRequired()
+                .HasColumnType("varchar(50)");
 
             builder.ToTable("TiposOcorrencia");
         }

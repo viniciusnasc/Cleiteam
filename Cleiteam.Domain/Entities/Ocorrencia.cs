@@ -9,5 +9,6 @@
 
         public TipoOcorrencia TipoOcorrencia { get; set; }
         public List<ImagemOcorrencia> Imagens { get; set; }
+        public List<UsuarioOcorrencia> Usuarios { get; set; }
     }
 }
