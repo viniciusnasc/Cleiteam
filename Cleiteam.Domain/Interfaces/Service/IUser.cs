@@ -10,5 +10,6 @@ namespace Cleiteam.Domain.Interfaces.Service
         bool IsAuthenticated();
         bool IsInRole(string role);
         IEnumerable<Claim> GetClaimsIdentity();
+        string GetBaseUrl();
     }
 }

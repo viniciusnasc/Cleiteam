@@ -1,6 +1,7 @@
 using Cleiteam.API.Configuration;
 using Cleiteam.CrossCutting.AutoMapper;
 using Cleiteam.CrossCutting.DependencyContainer;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,5 +18,10 @@ var app = builder.Build();
 
 app.UseApiConfiguration(app.Environment);
 
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory() + "/wwwroot/"),
+    RequestPath = "/files"
+});
 
 app.Run();

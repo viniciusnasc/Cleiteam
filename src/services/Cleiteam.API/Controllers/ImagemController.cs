@@ -19,7 +19,8 @@ namespace Cleiteam.API.Controllers
         [HttpGet]
         public async Task<ActionResult> BuscarTodos(Guid idOcorrencia)
         {
-            return CustomResponse();
+            var model = await _imagemOcorrenciaService.BuscarTodos(idOcorrencia);
+            return CustomResponse(model);
         }
 
         [HttpPost]
