@@ -41,6 +41,12 @@ Também é preciso estar com o banco de dados SQL Server instalado, é possível
 
 A string de conexão com o banco deve ser definida. Vá até os arquivos `appsettings.json`, que se encontram em Cleiteam.API e Cleiteam.Identidade.API e edite a ConnectionString da chave DefaultConnection.  
 
+**Configuração do banco de dados**
+
+Após adicionar as connections strings dos projetos, abir o Console do Gerenciador de Pacotes em: Ferramentas > Gerenciador de pacotes do NuGet.  
+No console, selecionar o projeto em Cleiteam.API 'padrão projeto' e executar os comandos `add-migration first`, seguido de `update-database`.  
+Realizar o mesmo procedimento para o projeto Cleiteam.Identidade.API.  
+
 **Compilar e executar com CLI do .NET:**
 
 A seguir, abra o prompt de comando nos diretórios dos projetos Cleiteam.API e Cleiteam.Identidade.API e digite:
@@ -61,3 +67,10 @@ Selecione Vários projetos de inicialização e defina os projetos 'Cleiteam.API
 Aperte a tecla F5 ou então clique no botão com ícone verde contendo o nome Cleiteam.API ou IIS Express, na barra de ferramentas. O navegador será automaticamente aberto com os URL's `https://localhost:7200/swagger/index.html` e `https://localhost:7205/swagger/index.html`
 
 **Exemplo de utilização da API:**
+
+## User Stories  
+
+### Épico: TO - Tipos de ocorrência  
+
+TO1: É necessário o insert automatico dos tipos de ocorrência e seus subtipos, de acordo com os discutidos em reuniões.
+Critérios de aceite: Necessário que ao ser configurado o banco de dados, seja inseridos os dados automaticamente
