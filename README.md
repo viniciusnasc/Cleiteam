@@ -70,7 +70,38 @@ Aperte a tecla F5 ou então clique no botão com ícone verde contendo o nome Cl
 
 ## User Stories  
 
+### Épico: GU - Gestão de usuários
+
+GU1: Necessário realizar cadastro de usuário.  
+Critérios de aceite: Utilizar e-mail para cadastrar o usuário.  
+
+GU2: O usuário poderá configurar o range de distância para receber notifições, se deseja receber a notificações, e seu nome de usuário.  
+Critérios de aceite: Ao editar as informações, elas deverão persistir no banco de dados.  
+
+### Épico: GO - Gestão de ocorrências  
+
+GO1: Um usuário pode registrar uma ocorrência, que será atrelado a seu perfil.  
+Critérios de aceite: O usuário logado deve ter a possibilidade de realizar o registro, que deve ser persistido no banco de dados. Esta ocorrência deve obrigatoriamente conter uma imagem.  
+
+GO2: É necessário retornar todos as ocorrências em um range a ser definido, a partir de um ponto no mapa.  
+Critérios de aceite: Renderizar no mapa todas as ocorrências presentes no banco de dados retornados da pesquisa.  
+
+GO3: Uma ocorrência deve conter uma ou varias imagens, ao selecionar uma ocorrência, deverá retornar todas as imagens atreladas a ela.  
+Critérios de aceite: Permitir a um usuário qualquer a adicionar uma imagem em uma ocorrência já existente.  
+
+GO4: Permitir somente ao usuário que adicionou a imagem poder excluir ela.  
+Critérios de aceite: Permitir a deleção de uma imagem, desde que o usuário que esteja tentando deletar seja o mesmo que a tenha inserido.  
+
+GO5: Possibilitar a inserção de comentários em uma imagem.  
+Critérios de aceite: Um usuário pode comentar várias vezes em uma imagem.
+
+GO6: Somente o proprio usuário pode excluir um comentário.  
+Critérios de aceite: Somente o usuário que inseriu o comentário conseguirá deletá-lo.
+
 ### Épico: TO - Tipos de ocorrência  
 
 TO1: É necessário o insert automatico dos tipos de ocorrência e seus subtipos, de acordo com os discutidos em reuniões.
-Critérios de aceite: Necessário que ao ser configurado o banco de dados, seja inseridos os dados automaticamente
+Critérios de aceite: Necessário que ao ser configurado o banco de dados, seja inseridos os dados automaticamente.  
+
+TO2: É necessário relacionar todos os tipos de ocorrência e seus subtipos para renderização do front end.  
+Critérios de aceite: Relacionar em uma rota todos dados de tipo de ocorrência presentes no banco de dados.  
