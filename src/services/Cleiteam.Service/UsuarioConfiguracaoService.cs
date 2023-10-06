@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Cleiteam.Domain.Entities;
 using Cleiteam.Domain.Interfaces.Repository;
 using Cleiteam.Domain.Interfaces.Service;
 using Cleiteam.Domain.Models;
