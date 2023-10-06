@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Cleiteam.Domain\Cleiteam.Domain.csproj" />
     <ProjectReference Include="..\Cleiteam.CrossCutting\Cleiteam.CrossCutting.csproj" />
+    <ProjectReference Include="..\Cleiteam.Domain\Cleiteam.Domain.csproj" />
   </ItemGroup>
 
 </Project>

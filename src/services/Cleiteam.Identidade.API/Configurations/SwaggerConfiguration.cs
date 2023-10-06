@@ -11,7 +11,7 @@ namespace Cleiteam.Identidade.API.Configurations
                 c.SwaggerDoc("v1", new OpenApiInfo()
                 {
                     Title = "Cleiteam API - Identidade",
-                    Description = "Esta API faz parte do projeto Cleiteam, realização do Hackathom.",
+                    Description = "Esta API faz parte do projeto Cleiteam, projeto realizado para o hackathon Hack for Change.",
                 });
 
             });

@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Cleiteam.Service\Cleiteam.Service.csproj" />
     <ProjectReference Include="..\Cleiteam.Data\Cleiteam.Data.csproj" />
+    <ProjectReference Include="..\Cleiteam.Service\Cleiteam.Service.csproj" />
   </ItemGroup>
 
 </Project>

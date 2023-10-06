@@ -2,7 +2,7 @@
 
 namespace Cleiteam.Domain.Interfaces.Repository
 {
-    public interface IUsuarioOcorrenciaRepository : IBaseRepository<UsuarioOcorrencia>
+    public interface ISubtipoOcorrenciaRepository : IBaseRepository<SubtipoOcorrencia>
     {
     }
 }

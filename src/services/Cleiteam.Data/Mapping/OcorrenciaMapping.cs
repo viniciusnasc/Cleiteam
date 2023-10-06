@@ -16,7 +16,7 @@ namespace Cleiteam.Data.Mapping
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 
-            builder.Property(x => x.IdTipoOcorrencia)
+            builder.Property(x => x.IdSubtipoOcorrencia)
                 .IsRequired();
 
             builder.Property(x => x.Latitude)
@@ -27,9 +27,9 @@ namespace Cleiteam.Data.Mapping
                 .IsRequired()
                 .HasColumnType("Decimal(9,6)");
 
-            builder.HasOne(x => x.TipoOcorrencia)
+            builder.HasOne(x => x.SubtipoOcorrencia)
                 .WithMany(x => x.Ocorrencias)
-                .HasForeignKey(x => x.IdTipoOcorrencia);
+                .HasForeignKey(x => x.IdSubtipoOcorrencia);
         }
     }
 }

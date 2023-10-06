@@ -2,7 +2,6 @@
 using Cleiteam.Domain.Entities;
 using Cleiteam.Domain.Interfaces.Repository;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using System.Linq.Expressions;
 
 namespace Cleiteam.Data.Repositorys

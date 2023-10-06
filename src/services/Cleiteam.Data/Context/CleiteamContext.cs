@@ -1,4 +1,5 @@
-﻿using Cleiteam.Domain.Entities;
+﻿using Cleiteam.Data.Seeds;
+using Cleiteam.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -9,6 +10,7 @@ namespace Cleiteam.Data.Context
         public CleiteamContext(DbContextOptions<CleiteamContext> options) : base(options) 
         { }
 
+        public DbSet<SubtipoOcorrencia> SubtiposOcorrencia { get; set; }
         public DbSet<TipoOcorrencia> TiposOcorrencia { get; set; }
         public DbSet<UsuarioConfiguracao> UsuarioConfiguracoes { get; set; }
         public DbSet<UsuarioOcorrencia> UsuarioOcorrencias { get; set; }
@@ -20,6 +22,8 @@ namespace Cleiteam.Data.Context
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(modelBuilder);
+
+            TipoOcorrenciaSeeds.TipoOcorrenciaSeed(modelBuilder);
         }
     }
 }

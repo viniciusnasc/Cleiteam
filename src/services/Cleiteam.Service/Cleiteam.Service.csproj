@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cleiteam.Domain\Cleiteam.Domain.csproj" />
-    <ProjectReference Include="..\src\services\Cleiteam.Data\Cleiteam.Data.csproj" />
   </ItemGroup>
 
 </Project>

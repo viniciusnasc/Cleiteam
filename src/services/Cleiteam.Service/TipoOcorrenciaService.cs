@@ -24,6 +24,12 @@ namespace Cleiteam.Service
             return _mapper.Map<IEnumerable<TipoOcorrenciaView>>(entities);
         }
 
+        public async Task<IEnumerable<SubtipoOcorrenciaView>> BuscarSubtiposOcorrencia(Guid idTipoOcorrencia)
+        {
+            var entities = await _unitOfWork.SubtipoOcorrenciaRepository.BuscarVarios(x => x.IdTipoOcorrencia == idTipoOcorrencia);
+            return _mapper.Map<IEnumerable<SubtipoOcorrenciaView>>(entities);
+        }
+
         public async Task Adicionar(string descricao)
         {
             var entity = new TipoOcorrencia(descricao);

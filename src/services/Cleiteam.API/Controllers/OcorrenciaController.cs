@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cleiteam.API.Controllers
 {
-    [Route("[controller]")]
     public class OcorrenciaController : BaseController
     {
         private readonly IOcorrenciaService _ocorrenciaService;
@@ -16,7 +15,6 @@ namespace Cleiteam.API.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<ActionResult> BuscarOcorrencias(long latitude, long longitude, int rangeDistancia = 10)
         {
             var result = await _ocorrenciaService.Buscar(latitude, longitude, rangeDistancia);

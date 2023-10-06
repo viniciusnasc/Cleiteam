@@ -10,6 +10,7 @@ namespace Cleiteam.Data.Repositorys
         public IImagemOcorrenciaRepository ImagemOcorrenciaRepository { get; }
         public ITipoOcorrenciaRepository TipoOcorrenciaRepository { get; }
         public IOcorrenciaRepository OcorrenciaRepository { get; }
+        public ISubtipoOcorrenciaRepository SubtipoOcorrenciaRepository { get; }
         public IUsuarioConfiguracaoRepository UsuarioConfiguracaoRepository { get; }
         public IUsuarioOcorrenciaRepository UsuarioOcorrenciaRepository { get; }
 
@@ -20,6 +21,7 @@ namespace Cleiteam.Data.Repositorys
             ImagemOcorrenciaRepository = new ImagemOcorrenciaRepository(context);
             TipoOcorrenciaRepository = new TipoOcorrenciaRepository(context);
             OcorrenciaRepository = new OcorrenciaRepository(context);
+            SubtipoOcorrenciaRepository = new SubtipoOcorrenciaRepository(context);
             UsuarioConfiguracaoRepository = new UsuarioConfiguracaoRepository(context);
             UsuarioOcorrenciaRepository = new UsuarioOcorrenciaRepository(context);
         }

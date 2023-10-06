@@ -4,6 +4,7 @@
     {
         public IComentarioImagemRepository ComentarioImagemRepository { get; }
         public IImagemOcorrenciaRepository ImagemOcorrenciaRepository { get; }
+        public ISubtipoOcorrenciaRepository SubtipoOcorrenciaRepository { get; }
         public ITipoOcorrenciaRepository TipoOcorrenciaRepository { get; }
         public IOcorrenciaRepository OcorrenciaRepository { get; }
         public IUsuarioConfiguracaoRepository UsuarioConfiguracaoRepository { get;}
