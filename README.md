@@ -32,6 +32,11 @@ Nosso banco de dados está separado em duas databases, sendo uma delas próprio 
 
 ## Instruções de Utilização:
 
+## Frontend
+
+Certifique-se de ter o Node JS instalado, caso não tenha, é possível fazer download [na página oficial](https://nodejs.org/en).  
+Com o celular conectao ao notebook e desbloqueado no modo desenvolvedor, abra o prompt de comando no diretório do projeto e digite: `npm i` e em seguida `npm run android` caso seu dispositivo seja android ou `npm run ios` caso seu dispositivo seja mac ou iphone.  
+
 ### Visual Studio
 
 Caso tenha o `git` instalado, é possível clonar este repositório com os seguintes comandos:
