@@ -9,6 +9,7 @@ Este projeto foi desenvolvido para o Hack For Change, Hackathon desenvolvido pel
 
 ## Tecnologias
 
+### Backend
 - .Net 7.0;
 - ASP .NET Web API;
 - SQL Server;
@@ -16,6 +17,11 @@ Este projeto foi desenvolvido para o Hack For Change, Hackathon desenvolvido pel
 - AutoMapper;
 - FluentValidation;
 - Git;
+
+### Frontend
+- Expo;  
+- React Native;  
+- TypeScript;  
 
 ## Detalhes
 Esta API é estruturada com base no padrão DDD com projetos do tipo biblioteca de classe, além do projeto do tipo API.  
