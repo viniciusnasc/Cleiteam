@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApiConfiguration();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapperConfiguration();
 builder.Services.AddIdentityConfig(builder.Configuration);
 builder.Services.AddSwaggerConfig();

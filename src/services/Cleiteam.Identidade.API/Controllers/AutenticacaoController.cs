@@ -1,4 +1,3 @@
-using Cleiteam.Domain.Interfaces.Service;
 using Cleiteam.Identidade.API.Extensions;
 using Cleiteam.Identidade.API.Models;
 using Microsoft.AspNetCore.Identity;
@@ -11,23 +10,19 @@ using System.Text;
 
 namespace Cleiteam.Identidade.API.Controllers
 {
-    [Route("api/[controller]")]
     public class AutenticacaoController : BaseController
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppSettingsConfiguration _appSettings;
-        private readonly IUsuarioConfiguracaoService _usuarioConfiguracaoService;
 
         public AutenticacaoController(SignInManager<IdentityUser> signInManager,
             UserManager<IdentityUser> userManager,
-            IOptions<AppSettingsConfiguration> appSettings,
-            IUsuarioConfiguracaoService usuarioConfiguracaoService)
+            IOptions<AppSettingsConfiguration> appSettings)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
-            _usuarioConfiguracaoService = usuarioConfiguracaoService;
         }
 
         [HttpPost("nova-conta")]
@@ -96,8 +91,7 @@ namespace Cleiteam.Identidade.API.Controllers
         private async Task<ClaimsIdentity> ObterClaimsUsuario(ICollection<Claim> claims, IdentityUser user)
         {
             var userRoles = await _userManager.GetRolesAsync(user);
-
-            
+    
             claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
             claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));

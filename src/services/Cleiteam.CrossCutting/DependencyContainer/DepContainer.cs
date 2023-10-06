@@ -29,6 +29,7 @@ namespace Cleiteam.CrossCutting.DependencyContainer
             services.AddScoped<IOcorrenciaService, OcorrenciaService>();
             services.AddScoped<IComentarioService, ComentarioService>();
             services.AddScoped<IUsuarioConfiguracaoService, UsuarioConfiguracaoService>();
+            services.AddScoped<IUsuarioOcorrenciaService, UsuarioOcorrenciaService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUser, AspNetUser>();
